@@ -2,7 +2,7 @@ package com.aug.helpdesk.domain;
 
 public enum Status {
 
-    ABERTO(0,"ABERTO"), ANDAMENTO(1,"ANDAMENTO",), ENCERRADO(2,"ENCERRADO");
+    ABERTO(0,"ABERTO"), ANDAMENTO(1,"ANDAMENTO"), ENCERRADO(2,"ENCERRADO");
 
     private Integer codigo;
     private String descricao;
@@ -18,10 +18,6 @@ public enum Status {
 
     public String getDescricao() {
         return descricao;
-    }
-
-    public String getPerfil(String perfil) {
-
     }
 
     public static Perfil toEnum(Integer cod) {

@@ -1,16 +1,43 @@
 package com.aug.helpdesk.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Chamado {
-    
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Entity
+public class Chamado implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    
     private Integer id;
+
     private Status status;
+
+    @ManyToOne
+    @JoinColumn(name = "tecnico_id")
     private Tecnico tecnico;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+
     private String observacoes;
     private Prioridade prioridade;
+
+    @JsonFormat(pattern = "dd/MM/yyy")
     private LocalDate dataAbertura;
+
+    @JsonFormat(pattern = "dd/MM/yyy")
     private LocalDate dataEncerramento;
 
     public Chamado() {
