@@ -18,24 +18,24 @@ public class Chamado implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)    
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)    
     private Integer id;
 
     private Status status;
 
     @ManyToOne
-    @JoinColumn(name = "tecnico_id")
+    @JoinColumn(name = "id_tecnico")
     private Tecnico tecnico;
 
     @ManyToOne
-    @JoinColumn(name = "cliente_id")
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
     private String observacoes;
     private Prioridade prioridade;
 
     @JsonFormat(pattern = "dd/MM/yyy")
-    private LocalDate dataAbertura;
+    private LocalDate dataAbertura = LocalDate.now();
 
     @JsonFormat(pattern = "dd/MM/yyy")
     private LocalDate dataEncerramento;
