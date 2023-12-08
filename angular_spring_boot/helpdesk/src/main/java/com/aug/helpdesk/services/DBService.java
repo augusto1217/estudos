@@ -1,5 +1,7 @@
 package com.aug.helpdesk.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,11 +34,12 @@ public class DBService {
 
 		Cliente cli1 = new Cliente(null, "Linus Torvalds", "69158592119", "linus@linux.org", "12345");
 
-		Chamado ch1 = new Chamado(1, Status.ANDAMENTO, tec1, cli1, "O Cliente deseja instalar mais memória em seu notebook", Prioridade.MEDIA);
+		Chamado ch1 = new Chamado(null, Status.ANDAMENTO, tec1, cli1, "O Cliente deseja instalar mais memória em seu notebook", Prioridade.MEDIA);
+		Chamado ch2 = new Chamado(null, Status.ABERTO, tec1, cli1, "O Cliente deseja instalar uma impressora", Prioridade.BAIXA);
 
-		tecnicoRepository.save(tec1);
-		clienteRepository.save(cli1);
-		chamadoRepository.save(ch1);
+		tecnicoRepository.saveAll(List.of(tec1));
+		clienteRepository.saveAll(List.of(cli1));
+		chamadoRepository.saveAll(List.of(ch1,ch2));
 
     }
     
