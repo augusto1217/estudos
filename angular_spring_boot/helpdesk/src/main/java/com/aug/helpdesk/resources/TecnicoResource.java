@@ -3,6 +3,7 @@ package com.aug.helpdesk.resources;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aug.helpdesk.domain.Tecnico;
+import com.aug.helpdesk.domain.dtos.TecnicoDTO;
 import com.aug.helpdesk.services.TecnicoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,9 @@ public class TecnicoResource {
     private TecnicoService service;
 
     @GetMapping("/{id}")       
-    public ResponseEntity<Tecnico> findById(@PathVariable Integer id) {
+    public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id) {
         Tecnico obj = service.findById(id);
-        return ResponseEntity.ok().body(obj);
+        return ResponseEntity.ok().body(new TecnicoDTO(obj));
     }
     
 }
