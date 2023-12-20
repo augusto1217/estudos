@@ -4,14 +4,13 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.aug.helpdesk.domain.Perfil;
 import com.aug.helpdesk.domain.Tecnico;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class TecnicoDTO implements Serializable{
+public class TecnicoDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -93,6 +92,6 @@ public class TecnicoDTO implements Serializable{
 
     public void setDataCadastro(LocalDate dataCadastro) {
         this.dataCadastro = dataCadastro;
-    } 
-    
+    }
+
 }
