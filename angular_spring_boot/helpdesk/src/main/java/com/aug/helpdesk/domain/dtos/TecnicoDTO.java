@@ -19,14 +19,14 @@ public class TecnicoDTO implements Serializable {
     protected String cpf;
     protected String email;
     protected String senha;
-    protected Set<Integer> perfils = new HashSet<Integer>();
+    protected Set<Integer> perfis = new HashSet<Integer>();
 
     @JsonFormat(pattern = "dd/MM/yyy")
     protected LocalDate dataCadastro = LocalDate.now();
 
     public TecnicoDTO() {
         super();
-        setPerfils(Perfil.CLIENTE);
+        setPerfil(Perfil.CLIENTE);
     }
 
     public TecnicoDTO(Tecnico obj) {
@@ -35,8 +35,9 @@ public class TecnicoDTO implements Serializable {
         this.cpf = obj.getCpf();
         this.email = obj.getEmail();
         this.senha = obj.getSenha();
-        this.perfils = obj.getPerfils().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
+        this.perfis = obj.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
         this.dataCadastro = obj.getDataCadastro();
+        setPerfil(Perfil.CLIENTE);
     }
 
     public Integer getId() {
@@ -79,12 +80,12 @@ public class TecnicoDTO implements Serializable {
         this.senha = senha;
     }
 
-    public Set<Perfil> getPerfils() {
-        return perfils.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
+    public Set<Perfil> getPerfis() {
+        return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
     }
 
-    public void setPerfils(Perfil perfil) {
-        this.perfils.add(perfil.getCodigo());
+    public void setPerfil(Perfil perfil) {
+        this.perfis.add(perfil.getCodigo());
     }
 
     public LocalDate getDataCadastro() {

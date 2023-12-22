@@ -24,20 +24,20 @@ public class Tecnico extends Pessoa {
         setPerfil(Perfil.CLIENTE);
     }
 
+    public Tecnico(Integer id, String nome, String cpf, String email, String senha) {
+        super(id, nome, cpf, email, senha);
+        setPerfil(Perfil.CLIENTE);
+    }
+
     public Tecnico(TecnicoDTO obj) {
         this.id = obj.getId();
         this.nome = obj.getNome();
         this.cpf = obj.getCpf();
         this.email = obj.getEmail();
         this.senha = obj.getSenha();
-        this.perfils = obj.getPerfils().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
+        this.perfis = obj.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
         this.dataCadastro = obj.getDataCadastro();
-    }
-
-    public Tecnico(Integer id, String nome, String cpf, String email, String senha) {
-        super(id, nome, cpf, email, senha);
-        setPerfil(Perfil.CLIENTE);
-    }
+    } 
 
     public List<Chamado> getChamados() {
         return chamados;
