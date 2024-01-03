@@ -29,13 +29,13 @@ public class DBService {
 
     public void instanciaDB() {
         
-        Tecnico tec1 = new Tecnico(null, "Jane Soares Maia", "99915143187", "janes@email.com", "123");
+        Tecnico tec1 = new Tecnico(null, "Jane Soares Maia", "00847493008", "janes@email.com", "123");
 		tec1.setPerfil(Perfil.ADMIN);
 
-		Tecnico tec2 = new Tecnico(null, "Deborah Soares Maia", "89715143187", "debinha@email.com", "1234");
+		Tecnico tec2 = new Tecnico(null, "Deborah Soares Maia", "87507871010", "debinha@email.com", "1234");
 		tec1.setPerfil(Perfil.TECNICO);		
 
-		Cliente cli1 = new Cliente(null, "Linus Torvalds", "69158592119", "linus@linux.org", "12345");
+		Cliente cli1 = new Cliente(null, "Linus Torvalds", "48605631074", "linus@linux.org", "12345");
 
 		Chamado ch1 = new Chamado(null, Status.ANDAMENTO, tec1, cli1, "O Cliente deseja instalar mais memória em seu notebook", Prioridade.MEDIA);
 		Chamado ch2 = new Chamado(null, Status.ABERTO, tec1, cli1, "O Cliente deseja instalar uma impressora", Prioridade.BAIXA);
