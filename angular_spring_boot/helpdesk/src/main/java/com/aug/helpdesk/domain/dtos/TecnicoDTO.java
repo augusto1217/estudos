@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.validation.constraints.NotNull;
+
 import com.aug.helpdesk.domain.Perfil;
 import com.aug.helpdesk.domain.Tecnico;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -39,7 +41,7 @@ public class TecnicoDTO implements Serializable {
         this.dataCadastro = obj.getDataCadastro();
         setPerfil(Perfil.CLIENTE);
     }
-
+    
     public Integer getId() {
         return id;
     }
@@ -48,6 +50,7 @@ public class TecnicoDTO implements Serializable {
         this.id = id;
     }
 
+    @NotNull(message = "O campo nome é requerido")
     public String getNome() {
         return nome;
     }
@@ -56,6 +59,7 @@ public class TecnicoDTO implements Serializable {
         this.nome = nome;
     }
 
+    @NotNull(message = "O campo cpf é requerido")
     public String getCpf() {
         return cpf;
     }
@@ -64,6 +68,7 @@ public class TecnicoDTO implements Serializable {
         this.cpf = cpf;
     }
 
+    @NotNull(message = "O campo e-mail é requerido")
     public String getEmail() {
         return email;
     }
@@ -72,6 +77,7 @@ public class TecnicoDTO implements Serializable {
         this.email = email;
     }
 
+    @NotNull(message = "O campo senha é requerido")
     public String getSenha() {
         return senha;
     }
